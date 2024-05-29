@@ -1,0 +1,62 @@
+body{
+    background-image: url("../../Asset/backgroundStaff.jpg");
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-login{
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    width: 450px;
+    padding-left: 33px;
+    padding-right: 30px;
+    margin: auto;
+    margin-top: 200px;
+    padding-bottom: 0px;
+ }
+
+ .logMasuk{
+    display: flex;
+    padding:10px;
+ }
+
+ table td{
+    padding:10px;
+ }
+
+ #submit{
+    margin-top: 10px;
+    margin-left:220px;
+    background-color: blue;
+    border-radius: 5px;
+    border:hidden;
+    height:30px;
+    width: 100px;
+    color:white;
+ }
+
+ a{
+    padding: 10px;
+    text-decoration: none;
+    margin-left:20px;
+ }
+
+ .verticle-line {
+    background-color: black;
+    width: 0.5px;
+    height: 40px;
+    margin-left: 3px;
+  }
+
+ .href-link{
+    display: flex;
+    justify-content: center;
+ }

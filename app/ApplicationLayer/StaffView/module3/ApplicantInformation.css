@@ -1,0 +1,103 @@
+body{
+    background-image: url('../../Asset/backgroundStaff.jpg');
+  
+  }
+  .content-container {
+  
+    height: 100vh;
+  }
+  
+  .content {
+    border: 1px solid black;
+    height: 700px;
+    width: 830px;
+    background-color: azure;
+    margin-top: 310px;
+    margin-left: 490px;
+   
+  }
+    
+  
+  .box{
+      background-color:lightgray;
+      
+      }
+      .content::-webkit-scrollbar {
+          width: 8px;
+          }
+          
+          .content::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.1);
+          }
+          
+          .content::-webkit-scrollbar-thumb {
+          background-color: rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          }
+      /* Set font and border properties for the table */
+      table {
+          font-family: Arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        /* Set background color and text alignment for table header */
+        th {
+          background-color: #f2f2f2;
+          text-align: left;
+          padding: 8px;
+          border-color: #000; 
+          
+        }
+        
+        /* Set background color for alternate table rows */
+        tr:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+        
+        /* Set table cell padding and border */
+        td {
+          padding: 8px;
+          border-bottom: 1px solid #ddd;
+          border-right: 1px solid #ddd;
+          border-color: #000; 
+        }
+        
+        /* Add hover effect to table rows */
+        tr:hover {
+          background-color: rgb(181, 215, 215);
+        }
+        .print-link {
+          display: inline-block;
+          padding: 6px 12px;
+          background-color: #4caf50;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+        
+        .print-link:hover {
+          background-color: #45a049;
+        }
+        .content h1{
+          text-align: center;
+          background-color: lightgrey;
+        }
+        .pagination {
+          text-align: right;
+          margin-top: 10px;
+        }
+        #submit{
+          background-color:#45a049;
+          color:white;
+          border-radius: 4px;
+          padding: 6px 12px;
+          display: inline-block;
+          
+        }
+        #submit a{
+            color:white;
+        }
+        .next-button:hover {
+          background-color: #0056b3;
+        }

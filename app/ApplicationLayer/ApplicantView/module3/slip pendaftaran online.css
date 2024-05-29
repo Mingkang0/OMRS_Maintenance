@@ -1,0 +1,89 @@
+body{
+    background-image: url("/app/ApplicationLayer/Asset/background.jpg");
+}
+.content-container {
+
+  height: 100vh;
+}
+
+.content {
+  border: 1px solid black;
+  height: 700px;
+  width: 830px;
+  background-color: azure;
+  margin-top: 310px;
+  margin-left: 490px;
+}
+
+    /*
+    scrollbar (content)
+    */
+    
+    .content::-webkit-scrollbar {
+    width: 8px;
+    }
+    
+    .content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    }
+    .box{
+    background-color:lightgray;
+    
+    }
+    .smallbox{
+    background-color:lightgray;
+    }
+    .required::after {
+      content: "*";
+      color: red;
+    }
+    #signatureCanvas {
+      border: 1px solid black;
+      
+    }  
+    article {
+      flex-grow: 1;
+      background-color: #fff;
+      padding: 10px;
+      align-self: center; /* Adjust the alignment as needed */
+    }
+   .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .form-row label {
+      width: 100px;
+    }
+    #print {
+      margin-top: 10px;
+      margin-left: 230px;
+      background-color: blue;
+      border-radius: 5px;
+      border: none;
+      height: 30px;
+      width: 100px;
+      color: white;
+    }
+    #submit{
+        margin-top: 10px;
+        margin-left: 230px;
+        background-color: blue;
+        border-radius: 5px;
+        border: none;
+        height: 30px;
+        width: 100px;
+        color: white;  
+    }
+    #submit a {
+        text-align: none;
+        color:white;
+      }
+
+      

@@ -1,0 +1,39 @@
+body{
+    background-image: url('../../Asset/backgroundStaff.jpg');
+
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content{
+   margin-top: 100px;
+}
+
+.container-ApplicantViewProfile{
+    border:5px solid;
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    width: 530px;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin: auto;
+    margin-top: 200px;
+    padding-bottom: 30px;
+ }
+
+ .StaffViewProfile{
+    display: flex;
+    padding:10px;
+ }
+ 
+ table td{
+    padding-bottom:10px;
+ }

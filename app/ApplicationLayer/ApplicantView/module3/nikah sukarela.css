@@ -1,0 +1,104 @@
+body{
+  background-image: url("/app/ApplicationLayer/Asset/background.jpg");
+}
+
+.content-container {
+
+height: 100vh;
+}
+
+.content {
+border: 1px solid black;
+height: 700px;
+width: 830px;
+background-color: azure;
+margin-top: 310px;
+margin-left: 490px;
+}
+.box{
+  background-color:lightgray;
+  
+  }
+  .smallbox{
+  background-color:lightgray;
+  }
+  .container h1 {
+    text-align: center;
+    color: #333;
+    background-color:lightgray;
+    scrollbar-width: thin;
+scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1);
+  }
+  .form{
+
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  input[type="text"]
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+button {
+    margin-top: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 12px;
+  display: inline-block;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tr, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+ 
+
+  #button1{
+      margin-top: 10px;
+  margin-left: 230px;
+  background-color: blue;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  width: 100px;
+  color: white;
+  }
+  #button2{
+      margin-top: 10px;
+  margin-left: 230px;
+  background-color: blue;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  width: 100px;
+  color: white;
+  }
+  #button2 a {
+    text-align: none;
+    color:white;
+  }
+  
+ 

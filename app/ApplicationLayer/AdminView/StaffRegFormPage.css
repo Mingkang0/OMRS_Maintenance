@@ -1,0 +1,49 @@
+body{
+    background-image: url("../Asset/backgroundStaff.jpg");
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content{
+  margin-top: 100px; 
+  padding-left:50px;
+}
+
+.container-StaffRegForm{
+   display: flex;
+   align-items: flex-start;
+   width: 700px;
+   padding-right: 10px;
+   margin: auto;
+   margin-top: 30px;
+   margin-left: 10px;
+   padding-bottom: 30px;
+}
+
+table td{
+  padding-bottom:10px;
+}
+
+  input[type=text]
+  {
+    width:400px;
+    height:30px;
+  }
+
+  #submit{
+    margin-top: 20px;
+    margin-left:475px;
+    background-color: blue;
+    border-radius: 5px;
+    border:hidden;
+    height:30px;
+    width: 100px;
+    color:white;
+ }
+
+

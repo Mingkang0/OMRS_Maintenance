@@ -1,0 +1,62 @@
+body{
+    background-image: url('../../Asset/backgroundStaff.jpg');
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content{
+   margin-top: 100px;
+}
+
+.container-AdminViewProfile{
+   display: flex;
+   align-items: flex-start;
+   width: 800px;
+   padding-left: 30px;
+   padding-right: 10px;
+   margin: auto;
+   margin-top: 30px;
+   padding-bottom: 30px;
+ }
+
+ .AdminViewProfile{
+    display: flex;
+    padding:10px;
+ }
+ 
+ table td{
+    padding-bottom:10px;
+ }
+
+ .content-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+
+.container-ApplicantViewProfile{
+   display: flex;
+   align-items: flex-start;
+   width: 800px;
+   padding-left: 30px;
+   padding-right: 10px;
+   margin: auto;
+   margin-top: 30px;
+   padding-bottom: 30px;
+}
+
+.ApplicantViewProfile{
+   display: flex;
+   padding:10px;
+}
+
+table td{
+   padding-bottom:10px;
+}
