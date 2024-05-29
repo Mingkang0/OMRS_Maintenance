@@ -12,11 +12,13 @@
         public function viewProfileFunction($from)
         {
             $userType = $_SESSION['currentUserType'];
+            $userIC = $_SESSION['currentUserIC'];
+            $userID = $_SESSION['currentUserID'];
 
             if($userType == "Pemohon")
             {
                 $Applicant_IC = $_SESSION['currentUserIC'];
-                $appProfileInfo = $this->Module1Repository->getApplicantProfileInfo($Applicant_IC); //returnProfileInfo
+                $appProfileInfo = $this->Module1Repository->getApplicantProfileInfo($userIC,$userID); //returnProfileInfo
 
                 if($from == 'view')
                 {

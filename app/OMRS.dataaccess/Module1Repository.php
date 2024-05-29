@@ -73,14 +73,14 @@
             }
          }          
 
-         public function loginApplicantAcc($userIC, $userPassword) 
+         public function loginAcc($userIC, $userPassword, $userRole) 
          {
-            $query = $this->connect->prepare("SELECT * FROM UserAccount WHERE userIC = :userIC AND userPassword = :userPassword");
+            $query = $this->connect->prepare("SELECT * FROM UserAccount WHERE userIC = :userIC AND userPassword = :userPassword AND userType = :userType");
             $query->bindParam(':userIC', $userIC);
             $query->bindParam(':userPassword', $userPassword);
+            $query->bindParam(':userType', $userRole);
             $query->execute();
             $result = $query->fetchAll();
- 
             // Check if the user exists in the database
             if (count($result) > 0) {
             // User found, set the user session
@@ -101,62 +101,6 @@
             }
         }
 
-         //login staff account using mySQL database
-         public function loginStaffAcc($userIC, $userPassword) 
-         {
-            $query = $this->connect->prepare("SELECT * FROM UserAccount WHERE userIC = :userIC AND userPassword = :userPassword");
-            $query->bindParam(':userIC', $userIC);
-            $query->bindParam(':userPassword', $userPassword);
-            $query->execute();
-            $result = $query->fetchAll();
-
-            // Check if the user exists in the database
-            if (count($result) > 0) {
-            // User found, set the user session
-            $row = $result[0];
-
-            session_start();
-
-            $_SESSION['UserAcc_Id'] = $row['UserAcc_Id'];
-            $_SESSION['currentUserIC'] = $row['userIC'];
-            $_SESSION['currentUserType'] = $row['userType'];
-
-            return true;
-            } 
-            else 
-            {
-                // User not found or password doesn't match, display an error message
-                return false;
-            }
-        }
-
-         public function loginAdminAcc($userIC, $userPassword) 
-         {
-            $query = $this->connect->prepare("SELECT * FROM UserAccount WHERE userIC = :userIC AND userPassword = :userPassword");
-            $query->bindParam(':userIC', $userIC);
-            $query->bindParam(':userPassword', $userPassword);
-            $query->execute();
-            $result = $query->fetchAll();
-
-            // Check if the user exists in the database
-            if (count($result) > 0) {
-            // User found, set the user session
-            $row = $result[0];
-
-            session_start();
-
-            $_SESSION['UserAcc_Id'] = $row['UserAcc_Id'];
-            $_SESSION['currentUserIC'] = $row['userIC'];
-            $_SESSION['currentUserType'] = $row['userType'];
-
-            return true;
-            } 
-            else 
-            {
-                // User not found or password doesn't match, display an error message
-                return false;
-            }
-        }
 
         public function changePassword($userIC, $userPassword, $newPassword)
         {
@@ -176,16 +120,38 @@
             }
          }
 
+         //get info after login
+         public function getInfo($userIC, $role)
+         {
+            if($role == "Pemohon"){
+            $query = $this->connect->prepare("SELECT * FROM ApplicantInfo WHERE Applicant_IC = :userIC");
+            $query->bindParam(':userIC', $userIC);
+            $query->execute();
+            $info = $query->fetch(PDO::FETCH_ASSOC);
+            }
+            else if($role == "Kakitangan"){
+            $query = $this->connect->prepare("SELECT * FROM StaffInfo WHERE Staff_Id = :userIC");
+            $query->bindParam(':userIC', $userIC);
+            $query->execute();
+            $info = $query->fetch(PDO::FETCH_ASSOC);
+            }
+            else if($role == "Admin"){
+            $query = $this->connect->prepare("SELECT * FROM AdminInfo WHERE Admin_Id = :userIC");
+            $query->bindParam(':userIC', $userIC);
+            $query->execute();
+            $info = $query->fetch(PDO::FETCH_ASSOC);
+            }
+            return $info;
+         }
 
          //view profile (table ApplicantInfo)
          public function getApplicantProfileInfo($Applicant_IC)
          {
             $query = $this->connect->prepare("SELECT * FROM ApplicantInfo WHERE Applicant_IC = :userIC" );
             $query->bindParam(':userIC', $Applicant_IC);
-
             $query->execute();
-
             $profileInfo = $query->fetch(PDO::FETCH_ASSOC);
+            
 
             return $profileInfo;  
          }

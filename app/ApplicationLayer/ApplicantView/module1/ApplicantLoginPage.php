@@ -20,7 +20,7 @@
 
         <div class="content-container">
             <div class="container-login"> 
-            <form action="../../../../public/Facade.php?action=loginApplicantAcc" method="post">
+            <form action="../../../public/Facade.php?action=loginAcc" method="post">
             <div class="logMasuk">
                 <img style="height:50px;"src="../../Asset/Login_Profile.jpg">
                 <h2><b>Log Masuk</b></h2>

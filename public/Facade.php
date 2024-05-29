@@ -109,26 +109,14 @@
             $RegistrationController->staffRegisterFunction($userIC, $staffName, $staffGender, $staffDepartmentName, $userType, $staffEmail, $staffPhoneNo, $userPassword);
             break;
 
-        case 'loginApplicantAcc':
+        case 'loginAcc':
             $userIC = $_POST['userIC'];
             $userPassword = $_POST['userPassword'];
+            $userRole= $_POST['role'];
 
-            $LoginController->loginApplicantFunction($userIC, $userPassword);  //means dia akan read LoginController dan function loginFunction
+            $LoginController->loginFunction($userIC, $userPassword, $userRole);
             break;
 
-        case 'loginStaffAcc':
-            $userIC  = $_POST['userIC'];
-            $userPassword = $_POST['userPassword'];
-
-            $LoginController->loginStaffFunction($userIC, $userPassword);  //means dia akan read LoginController dan function loginFunction
-            break;
-
-        case 'loginAdminAcc':
-            $userIC  = $_POST['userIC'];
-            $userPassword = $_POST['userPassword'];
-
-            $LoginController->loginAdminFunction($userIC, $userPassword);  //means dia akan read LoginController dan function loginFunction
-            break;
 
         case 'forgotPasswordApplicant':
             $userIC = $_POST['userIC'];

@@ -419,7 +419,7 @@ if($route == 'viewProfile'){
         <!-- Log Keluar -->
         <li class="logKeluar">
               <img style="width:15px; height:15px; margin-left:15px;"src="../Common/LogOutIcon.png">
-              <a href="../../../app/ApplicationLayer/AdminView/AdminLoginPage.php">
+              <a href=".././LoginPage.php">
                 <label style="padding-left: 5px;">Log Keluar</label>
               </a>
             </li>
