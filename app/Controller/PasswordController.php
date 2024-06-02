@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require '.././vendor/autoload.php';
     class PasswordController
     {
         private $connect;
@@ -10,136 +16,89 @@
             $this->connect = $db;
         }
 
-        //Lupa Kata Laluan
-        function passwordFunctionApplicant($userIC, $appEmail)
-        {
-            $query = "SELECT * FROM UserAccount WHERE userIC = :ic";
-            $query = $this->connect->prepare($query);
-            $query->bindParam(':ic', $userIC);
-            $query->execute();
-
-            if ($query->rowCount() > 0) {
-            // Generate a random password
-            $newPassword = $this->generateRandomPassword();
-
-            //Update applicant password in the database
-            $updateQuery = "UPDATE UserAccount SET userPassword = :password WHERE userIC = :ic";
-            $stmt = $this->connect->prepare($updateQuery);
-            $stmt->bindParam(':password', $newPassword);
-            $stmt->bindParam(':ic', $userIC);
-            $stmt->execute();            
-
-            // Set SMTP and smtp_port settings
-            ini_set('SMTP', 'localhost');
-            ini_set('smtp_port', '25');
-
-            // Send new password to the applicant email   
-            $emailTitle = 'Kata Laluan Baharu';
-            $emailMessage = 'Kata laluan baharu anda adalah seperti yang tertera: ' . $newPassword;
-            $emailHeader = 'From: your-email@example.com' . "\r\n" .
-                'Reply-To: your-email@example.com' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-
-            $sent = mail($appEmail, $emailTitle, $emailMessage, $emailHeader);
-
-            if ($sent) {
-                echo 'Sila lihat e-mel anda. Kata laluan telah dihantar ke e-mel anda.';
-            } else {
-            echo 'Maaf, proses tukar kata laluan anda gagal.';
-            }
-            } else {
-            echo 'E-mel anda tiada dalam sistem. Sila isi e-mel anda yang SAH.';
-            }
-        }
-
-
-        function passwordFunctionStaff($userIC, $staffEmail)
-        {
-            $query = "SELECT * FROM UserAccount WHERE userIC = :ic";
-            $query = $this->connect->prepare($query);
-            $query->bindParam(':ic', $userIC);
-            $query->execute();
-                
-        
-            if ($query->rowCount() > 0) 
+            //Lupa Kata Laluan
+            function passwordFunction($userIC, $userEmail,$role)
             {
+                if($role == "Pemohon")
+                {
+                    $query = "SELECT * FROM UserAccount ua 
+                    INNER JOIN ApplicantInfo si ON ua.userIC = si.Applicant_IC 
+                    WHERE ua.userIC = :ic AND si.appEmail = :email";
+                    $query = $this->connect->prepare($query);
+                    $query->bindParam(':ic', $userIC);
+                    $query->bindParam(':email', $userEmail);
+                }
+                else if($role == "Kakitangan")
+                {
+                    $query = "SELECT * FROM UserAccount ua 
+                    INNER JOIN StaffInfo si ON ua.userIC = si.Staff_Id 
+                    WHERE ua.userIC = :ic AND si.staffEmail = :email";
+                    $query = $this->connect->prepare($query);
+                    $query->bindParam(':ic', $userIC);
+                    $query->bindParam(':email', $userEmail);
+                }
+                else if($role == "Admin")
+                {
+                    $query = "SELECT * FROM UserAccount ua 
+                    INNER JOIN AdminInfo si ON ua.userIC = si.Admin_Id
+                    WHERE ua.userIC = :ic AND si.adminEmail = :email";
+                    $query = $this->connect->prepare($query);
+                    $query->bindParam(':ic', $userIC);
+                    $query->bindParam(':email', $userEmail);
+        
+                }
+                if($query->execute()){
+                if ($query->rowCount() > 0) {
                 // Generate a random password
                 $newPassword = $this->generateRandomPassword();
         
-                // Update applicant password in the database
+                //Update applicant password in the database
                 $updateQuery = "UPDATE UserAccount SET userPassword = :password WHERE userIC = :ic";
                 $stmt = $this->connect->prepare($updateQuery);
                 $stmt->bindParam(':password', $newPassword);
                 $stmt->bindParam(':ic', $userIC);
-                $stmt->execute();
-        
+                $stmt->execute();            
                 // Send new password to the applicant email   
                 $emailTitle = 'Kata Laluan Baharu';
-                $emailMessage = 'Kata laluan baharu anda adalah seperti yang tertera ' . $newPassword;
-                $emailHeader = 'From: your-email@example.com' . "\r\n" .
-                        'Reply-To: your-email@example.com' . "\r\n" .
-                        'X-Mailer: PHP/' . phpversion();
+                $emailMessage = 'Kata laluan baharu anda adalah seperti yang tertera: ' . $newPassword;
         
-                $sent = mail($staffEmail, $emailTitle, $emailMessage, $emailHeader);
-                
-                if ($sent) 
-                {
+                $mail = new PHPMailer(true);
+        
+                try {               
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                    $mail->isSMTP();                                            //Send using SMTP
+                    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                    $mail->Username   = 'shomingkang@gmail.com';                     //SMTP username
+                    $mail->Password   = 'sbim zjqt smqu wltc';                               //SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                    $mail->SMTPDebug  = 1;  
+                    $mail->SMTPAuth   = TRUE;
+                    $mail->SMTPSecure = "tls";
+
+                    //Recipients
+                    $mail->setFrom('shomingkang@gmail.com', 'Mailer');
+                    $mail->addAddress($userEmail);     //Add a recipient
+        
+                    //Content
+                    $mail->isHTML(true);                                  //Set email format to HTML
+                    $mail->Subject = $emailTitle;
+                    $mail->Body    = $emailMessage;
+        
+                    $mail->send();
                     echo 'Sila lihat e-mel anda. Kata laluan telah dihantar ke e-mel anda.';
-                } 
-                else 
-                {
-                    echo 'Maaf, proses tukar kata laluan anda gagal.';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
-            }
-            else 
-            {
+        
+                } else {
                 echo 'E-mel anda tiada dalam sistem. Sila isi e-mel anda yang SAH.';
+                }
             }
         }
 
-        function passwordFunctionAdmin($userIC, $adminEmail)
-        {
-            $query = "SELECT * FROM UserAccount WHERE userIC = :ic";
-            $query = $this->connect->prepare($query);
-            $query->bindParam(':ic', $userIC);
-            $query->execute();
-                
-        
-            if ($query->rowCount() > 0) 
-            {
-                // Generate a random password
-                $newPassword = $this->generateRandomPassword();
-        
-                // Update applicant password in the database
-                $updateQuery = "UPDATE UserAccount SET userPassword = :password WHERE userIC = :ic";
-                $stmt = $this->connect->prepare($updateQuery);
-                $stmt->bindParam(':password', $newPassword);
-                $stmt->bindParam(':ic', $userIC);
-                $stmt->execute();
-        
-                // Send new password to the applicant email   
-                $emailTitle = 'Kata Laluan Baharu';
-                $emailMessage = 'Kata laluan baharu anda adalah seperti yang tertera ' . $newPassword;
-                $emailHeader = 'From: your-email@example.com' . "\r\n" .
-                        'Reply-To: your-email@example.com' . "\r\n" .
-                        'X-Mailer: PHP/' . phpversion();
-        
-                $sent = mail($adminEmail, $emailTitle, $emailMessage, $emailHeader);
-                
-                if ($sent) 
-                {
-                    echo 'Sila lihat e-mel anda. Kata laluan telah dihantar ke e-mel anda.';
-                } 
-                else 
-                {
-                    echo 'Maaf, proses tukar kata laluan anda gagal.';
-                }
-            }
-            else 
-            {
-                echo 'E-mel anda tiada dalam sistem. Sila isi e-mel anda yang SAH.';
-            }
-        }
+
 
         //generate a random password
         function generateRandomPassword()
@@ -166,29 +125,29 @@
                 if($userType == "Pemohon")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda telah ditukar");
-                     window.location = "../app/ApplicationLayer/ApplicantView/module1/ApplicantLoginPage.php";
-                 </script>
-                 <?php 
+<script>
+alert("Kata Laluan anda telah ditukar");
+window.location = "../app/ApplicationLayer/ApplicantView/module1/ApplicantLoginPage.php";
+</script>
+<?php 
                 }
                 else if($userType == "Kakitangan")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda telah ditukar");
-                     window.location = "../app/ApplicationLayer/StaffView/module1/StaffLoginPage.php";
-                 </script>
-                 <?php
+<script>
+alert("Kata Laluan anda telah ditukar");
+window.location = "../app/ApplicationLayer/StaffView/module1/StaffLoginPage.php";
+</script>
+<?php
                 }
                 else if($userType == "Admin")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda telah ditukar");
-                     window.location = "../app/ApplicationLayer/AdminView/AdminLoginPage.php";
-                 </script>
-                 <?php
+<script>
+alert("Kata Laluan anda telah ditukar");
+window.location = "../app/ApplicationLayer/AdminView/AdminLoginPage.php";
+</script>
+<?php
                 }
              }
              else
@@ -196,32 +155,31 @@
                 if($userType == "Pemohon")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda tidak berjaya ditukar");
-                     window.location = "../app/ApplicationLayer/ApplicantView/module1/ApplicantChangePasswordPage.php";
-                 </script>
-                 <?php 
+<script>
+alert("Kata Laluan anda tidak berjaya ditukar");
+window.location = "../app/ApplicationLayer/ApplicantView/module1/ApplicantChangePasswordPage.php";
+</script>
+<?php 
                 }
                 else if($userType == "Kakitangan")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda tidak berjaya ditukar");
-                     window.location = "../app/ApplicationLayer/StaffView/module1/StaffChangePasswordPage.php";
-                 </script>
-                 <?php
+<script>
+alert("Kata Laluan anda tidak berjaya ditukar");
+window.location = "../app/ApplicationLayer/StaffView/module1/StaffChangePasswordPage.php";
+</script>
+<?php
                 }
                 else if($userType == "Admin")
                 {
                  ?>
-                 <script>
-                     alert("Kata Laluan anda tidak berjaya ditukar");
-                     window.location = "../app/ApplicationLayer/AdminView/AdminChangePasswordPage.php";
-                 </script>
-                 <?php
+<script>
+alert("Kata Laluan anda tidak berjaya ditukar");
+window.location = "../app/ApplicationLayer/AdminView/AdminChangePasswordPage.php";
+</script>
+<?php
                 }   
              }
         }
     }
 ?>
-

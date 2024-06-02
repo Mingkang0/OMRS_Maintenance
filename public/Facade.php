@@ -118,18 +118,12 @@
             break;
 
 
-        case 'forgotPasswordApplicant':
+        case 'forgotPassword':
             $userIC = $_POST['userIC'];
-            $appEmail = $_POST['appEmail'];
+            $userEmail = $_POST['userEmail'];
+            $role= $_POST['role'];
 
-            $PasswordController->passwordFunctionApplicant($userIC, $appEmail);
-            break;
-
-        case 'forgotPasswordAdmin':
-            $userIC = $_POST['userIC'];
-            $staffEmail = $_POST['adminEmail'];
-
-            $PasswordController->passwordFunctionAdmin($userIC, $adminEmail);
+            $PasswordController->passwordFunction($userIC, $userEmail,$role);
             break;
 
         case 'changePassword':

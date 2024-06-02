@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </table>
 
             <input style="margin-left:700px;" type="submit" id="submit" value="DAFTAR" onclick = "  ">  <!--submitForm(event, 'reg-form')-->
-            <a href="ApplicantLoginPage.php">[  KEMBALI  ]</a>
+            <a href="../../LoginPage.php">[  KEMBALI  ]</a>
             <br>
         </form>
         </div>   
