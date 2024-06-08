@@ -28,6 +28,10 @@
                 {
                     header('Location: ../app/ApplicationLayer/ApplicantView/module1/ApplicantUpdateProfilePage.php?returnProfileInfo='. urlencode(serialize($appProfileInfo)));
                 }
+                else if($from == 'change-password')
+                {
+                    header('Location: ../app/ApplicationLayer/ApplicantView/module1/ApplicantChangePasswordPage.php?returnProfileInfo='. urlencode(serialize($appProfileInfo)));
+                }
             }
             else if($userType == "Kakitangan")
             {
@@ -41,6 +45,10 @@
                 else if($from == 'edit')
                 {
                     header('Location: ../app/ApplicationLayer/StaffView/module1/StaffUpdateProfilePage.php?returnProfileInfo='. urlencode(serialize($staffProfileInfo)));
+                }
+                else if($from == 'change-password')
+                {
+                    header('Location: ../app/ApplicationLayer/StaffView/module1/StaffChangePasswordPage.php?returnProfileInfo='. urlencode(serialize($appProfileInfo)));
                 }
             }
             else if($userType == "Admin")
@@ -56,6 +64,11 @@
                 {
                     header('Location: ../app/ApplicationLayer/AdminView/AdminUpdateProfilePage.php?returnProfileInfo='. urlencode(serialize($adminProfileInfo)));
                 }
+                else if($from == 'change-password')
+                {
+                    header('Location: ../app/ApplicationLayer/AdminView/AdminChangePasswordPage.php?returnProfileInfo='. urlencode(serialize($appProfileInfo)));
+                }
+                
             }
             else
             {
@@ -106,6 +119,25 @@
                 <?php                        
                 header("Location: ../public/Facade.php?action=viewProfile&from=view");
             } 
+        }
+
+        function ChangePasswordFunction($userPassword, $newPassword)
+        {
+            if ($this->Module1Repository->ChangePassword($_SESSION['currentUserType'],$_SESSION['currentUserIC'], $userPassword, $newPassword)) {
+                ?>
+                <script>
+                    alert("Kata Laluan anda telah ditukar");
+                    window.location.href = "../public/Facade.php?action=viewProfile&from=view";
+                </script>
+                <?php
+            } else {
+                ?>
+                <script>
+                    alert("Kata Laluan anda tidak berjaya ditukar");
+                    window.location.href = "../public/Facade.php?action=viewProfile&from=view";
+                </script>
+                <?php
+            }
         }
 
         //Update the admin profile data 

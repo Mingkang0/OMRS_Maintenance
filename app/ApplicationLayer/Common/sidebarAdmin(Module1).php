@@ -309,24 +309,6 @@ if($route == 'viewProfile'){
   </svg>
 
   <main class="d-flex flex-nowrap">
-
-    <!-- Profile -->
-    <div class="Profile">
-      <img src="../Asset/icon.png" alt="" class="profileicon">
-
-      <div class="profile">
-        <div class="profilename">
-          <p class="profile-name">NAME : </p>
-          <p class="profile-name">NURUL SYAZANA</p>
-        </div>
-        <div class="profileid">
-          <p class="profile-id">ID : </p>
-          <p class="profile-id">020715060540</p>
-        </div>
-      </div>
-
-    </div>
-
     <!-- Sidebar -->
     <div id="collapsible" class="flex-shrink-0 p-3" style="width: 280px; border: 1px solid black;">
       <ul class="list-unstyled ps-0">
@@ -340,8 +322,9 @@ if($route == 'viewProfile'){
 
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">    
             <li><a id="profile-page" class="link-body-emphasis d-inline-flex text-decoration-none rounded"   href="../../../app/ApplicationLayer/AdminView/StaffRegFormPage.php">Pendaftaran Kakitangan</a></li>                                                                                                               <!-- onclick="redirectToURL(this.id) -->
-              <li><a id="profile-page"  class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="../../../public/Facade.php?action=viewProfile&from=view">Lihat Akaun Profil</a></li>
-              <li><a id="profile-page" class="link-body-emphasis d-inline-flex text-decoration-none rounded"   href="../../../public/Facade.php?action=viewProfile&from=edit">Sunting Akaun Profil</a></li>
+            <li><a id="profile-page"  class="link-body-emphasis d-inline-flex text-decoration-none rounded" href="../../../public/Facade.php?action=viewProfile&from=view">Lihat Akaun Profil</a></li>
+            <li><a id="profile-page" class="link-body-emphasis d-inline-flex text-decoration-none rounded"   href="../../../public/Facade.php?action=viewProfile&from=edit">Sunting Akaun Profil</a></li>
+            <li><a id="profile-page" class="link-body-emphasis d-inline-flex text-decoration-none rounded"   href="../../../public/Facade.php?action=viewProfile&from=change-password">Tukar Kata Laluan</a></li>
             </ul>
           </div>
         </li>

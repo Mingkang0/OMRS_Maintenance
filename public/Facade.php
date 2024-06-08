@@ -126,14 +126,6 @@
             $PasswordController->passwordFunction($userIC, $userEmail,$role);
             break;
 
-        case 'changePassword':
-            $userIC = $_POST['userIC'];
-            $userPassword = $_POST['userPassword'];
-            $newPassword = $_POST['newPassword'];
-
-            $PasswordController->changePasswordFunction($userIC, $userPassword, $newPassword);
-            break;
-
         case 'viewProfile':
             $from = isset($_GET['from']) ? $_GET['from'] : '';
 
@@ -158,6 +150,26 @@
             $staffEmail = $_POST['staffEmail'];
 
             $ProfileController->updateStaffProfileFunction($staffPhoneNo, $staffEmail);
+            break;
+        case 'appChangePassword':
+            $userPassword = $_POST['userPassword'];
+            $newPassword = $_POST['newPassword'];
+
+            $ProfileController->ChangePasswordFunction($userPassword, $newPassword);
+            break;
+
+        case 'staffChangePassword':
+            $userPassword = $_POST['userPassword'];
+            $newPassword = $_POST['newPassword'];
+    
+            $ProfileController->ChangePasswordFunction($userPassword, $newPassword);
+            break;
+
+        case 'adminChangePassword':
+            $userPassword = $_POST['userPassword'];
+            $newPassword = $_POST['newPassword'];
+        
+            $ProfileController->ChangePasswordFunction($userPassword, $newPassword);
             break;
 
         case 'updateAdminProfile':

@@ -102,23 +102,22 @@
         }
 
 
-        public function changePassword($userIC, $userPassword, $newPassword)
+        public function ChangePassword($userType, $userIC, $userPassword, $newPassword)
         {
-            $query = $this->connect->prepare("UPDATE UserAccount SET userPassword = :newPassword WHERE userIC = :userIC AND userPassword = :userPassword");
+            $query = $this->connect->prepare("UPDATE UserAccount SET userPassword = :newPassword WHERE userIC = :userIC and userType= :userType");
             $query->bindParam(':newPassword', $newPassword);
             $query->bindParam(':userIC', $userIC);
-            $query->bindParam(':userPassword', $userPassword);
+            $query->bindParam(':userType', $userType);
             $query->execute();
-
             // Check if the update was successful
             if ($query->rowCount() > 0) {
-            $_SESSION['passwordUpdateSuccess'] = true;
-            return true; // Return true if the update was successful
+               $_SESSION['passwordUpdateSuccess'] = true;
+               return true; // Return true if the update was successful
             } else {
-            $_SESSION['passwordUpdateError'] = true;
-            return false; // Return false if the update failed
-            }
-         }
+               $_SESSION['passwordUpdateError'] = true;
+               return false; // Return false if the update failed
+             }
+        }
 
          //get info after login
          public function getInfo($userIC, $role)

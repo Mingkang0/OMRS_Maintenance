@@ -1,5 +1,9 @@
 <?php
 
+if (isset($_SESSION['alertMessage'])) {
+    echo '<script>alert("'. $_SESSION['alertMessage']. '");</script>';
+}
+
 // Start up your PHP Session
 session_start();
 
