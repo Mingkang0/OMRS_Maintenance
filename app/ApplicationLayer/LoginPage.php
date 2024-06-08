@@ -55,7 +55,7 @@
             <div class="href-link">
               <a href="./ApplicantView/Module1/ApplicantRegFormPage.php">Daftar</a>
               <div class="verticle-line"></div>
-              <a href="ForgotPasswordPage.php">Lupa Kata Laluan?</a>
+              <a href="ForgotPassword.php">Lupa Kata Laluan?</a>
             </div>
             <br>
           </form>
