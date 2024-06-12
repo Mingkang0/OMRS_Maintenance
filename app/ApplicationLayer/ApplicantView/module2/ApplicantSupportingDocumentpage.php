@@ -23,7 +23,6 @@
             background: #FFE0F6;
             border-radius: 10px;
             padding-left: 10px;
-
         }
 
         #line {
@@ -86,6 +85,15 @@
         #text {
             color: #FFFFFF;
         }
+
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -100,7 +108,7 @@
         <section>
 
             <div>
-                <?php include_once('../../Common/sidebar.php');  ?>
+                <?php include_once('../../Common/sidebar.php'); ?>
             </div>
 
             <div class="content-container">
@@ -132,59 +140,51 @@
                         <p id="state1">Pemohon perlu melengkapkan borang ini dengan <br>memuat naik semua dokumen yang diperlukan</p>
                         <table class="table-data">
                             <tr>
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td>
                                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                 </td>
                                 <td style="width: 85px;">
                                     <p>Cetak</p>
                                 </td>
-                                <td>
-                                </td>
+                                <td></td>
                                 <td>
                                     <p>Muat Naik</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
-                                    <p class=" doc">BORANG PERMOHONAN KAHWIN</p>
+                                    <p class="doc">BORANG PERMOHONAN KAHWIN</p>
                                 </td>
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
-                                    <a href="path/to/download/Borang Permohonan Kahwn.pdf" download>
+                                    <a href="path/to/download/Borang Permohonan Kahwin.pdf" download>
                                         <img class="icon2" src="../../Common/printIcon.png" alt="Download Slip Permohonan">
                                     </a>
                                 </td>
-                                <td>
-                                </td>
+                                <td></td>
                                 <td style=" background-color:#FFE0F6; border-radius: 25px">
                                     <label for="file-upload-1" class="upload-label">
                                         <img class="icon" src="../../Common/uploadIcon.png" alt="Upload Icon">
                                     </label>
                                 </td>
-                                <td style="width: 100px;">
+                                <td style="width: 150px;">
                                     <input id="file-upload-1" type="file" style="display: none;">
                                     <span id="file-name-1"></span>
+                                    <button class="delete-button" onclick="deleteFile(1)">Delete</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
-                                    <p class=" doc">AKUAN PEMASTAUTINAN</p>
+                                    <p class="doc">AKUAN PEMASTAUTINAN</p>
                                 </td>
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
                                     <a href="path/to/download/Akuan Permastautinan.pdf" download>
                                         <img class="icon2" src="../../Common/printIcon.png" alt="Download Slip Permohonan">
                                     </a>
                                 </td>
-                                <td>
-                                </td>
+                                <td></td>
                                 <td style=" background-color:#FFE0F6; border-radius: 25px">
                                     <label for="file-upload-2" class="upload-label">
                                         <img class="icon" src="../../Common/uploadIcon.png" alt="Upload Icon">
@@ -193,23 +193,20 @@
                                 <td>
                                     <input id="file-upload-2" type="file" style="display: none;">
                                     <span id="file-name-2"></span>
+                                    <button class="delete-button" onclick="deleteFile(2)">Delete</button>
                                 </td>
-
                             </tr>
                             <tr>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
-                                    <p class=" doc">PERSETUJUAN DAN WAKALHAH WALI</p>
+                                    <p class="doc">PERSETUJUAN DAN WAKALAH WALI</p>
                                 </td>
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
                                     <a href="path/to/download/Persetujuan dan Wakalah Wali.pdf" download>
                                         <img class="icon2" src="../../Common/printIcon.png" alt="Download Slip Permohonan">
                                     </a>
                                 </td>
-                                <td>
-                                </td>
+                                <td></td>
                                 <td style=" background-color:#FFE0F6; border-radius: 25px">
                                     <label for="file-upload-3" class="upload-label">
                                         <img class="icon" src="../../Common/uploadIcon.png" alt="Upload Icon">
@@ -218,23 +215,20 @@
                                 <td>
                                     <input id="file-upload-3" type="file" style="display: none;">
                                     <span id="file-name-3"></span>
+                                    <button class="delete-button" onclick="deleteFile(3)">Delete</button>
                                 </td>
-
                             </tr>
                             <tr>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
-                                    <p class=" doc">BORANG HIV</p>
+                                    <p class="doc">BORANG HIV</p>
                                 </td>
-                                <td>
-
-                                </td>
+                                <td></td>
                                 <td style="background-color:#FFE0F6;  border-radius: 25px">
                                     <a href="path/to/download/Borang HIV.pdf" download>
                                         <img class="icon2" src="../../Common/printIcon.png" alt="Download Slip Permohonan">
                                     </a>
                                 </td>
-                                <td>
-                                </td>
+                                <td></td>
                                 <td style=" background-color:#FFE0F6; border-radius: 25px">
                                     <label for="file-upload-4" class="upload-label">
                                         <img class="icon" src="../../Common/uploadIcon.png" alt="Upload Icon">
@@ -243,21 +237,16 @@
                                 <td>
                                     <input id="file-upload-4" type="file" style="display: none;">
                                     <span id="file-name-4"></span>
+                                    <button class="delete-button" onclick="deleteFile(4)">Delete</button>
                                 </td>
-
                             </tr>
                             <tr>
                                 <td style="background-color:#FFE0F6; border-radius: 25px">
-                                    <p class=" doc">DOKUMEN SOKONGAN</p>
+                                    <p class="doc">DOKUMEN SOKONGAN</p>
                                 </td>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td style=" background-color:#FFE0F6; border-radius: 25px">
                                     <label for="file-upload-5" class="upload-label">
                                         <img class="icon" src="../../Common/uploadIcon.png" alt="Upload Icon">
@@ -266,8 +255,8 @@
                                 <td>
                                     <input id="file-upload-5" type="file" style="display: none;">
                                     <span id="file-name-5"></span>
+                                    <button class="delete-button" onclick="deleteFile(5)">Delete</button>
                                 </td>
-
                             </tr>
                         </table>
                     </div>
@@ -277,36 +266,27 @@
         </section>
     </div>
     <script>
-        document.getElementById("file-upload-1").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            // Handle the uploaded file here, e.g., send it to a server or perform operations with it
-            console.log("Uploaded file:", file.name);
-            document.getElementById("file-name-1").textContent = file.name;
-        });
-        document.getElementById("file-upload-2").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            // Handle the uploaded file here, e.g., send it to a server or perform operations with it
-            console.log("Uploaded file:", file.name);
-            document.getElementById("file-name-2").textContent = file.name;
-        });
-        document.getElementById("file-upload-3").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            // Handle the uploaded file here, e.g., send it to a server or perform operations with it
-            console.log("Uploaded file:", file.name);
-            document.getElementById("file-name-3").textContent = file.name;
-        });
-        document.getElementById("file-upload-4").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            // Handle the uploaded file here, e.g., send it to a server or perform operations with it
-            console.log("Uploaded file:", file.name);
-            document.getElementById("file-name-4").textContent = file.name;
-        });
-        document.getElementById("file-upload-5").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            // Handle the uploaded file here, e.g., send it to a server or perform operations with it
-            console.log("Uploaded file:", file.name);
-            document.getElementById("file-name-5").textContent = file.name;
-        });
+        function handleFileUpload(inputId, fileNameId) {
+            document.getElementById(inputId).addEventListener("change", function(event) {
+                var file = event.target.files[0];
+                console.log("Uploaded file:", file.name);
+                document.getElementById(fileNameId).textContent = file.name;
+            });
+        }
+
+        function deleteFile(fileNumber) {
+            var inputId = "file-upload-" + fileNumber;
+            var fileNameId = "file-name-" + fileNumber;
+            document.getElementById(inputId).value = "";
+            document.getElementById(fileNameId).textContent = "";
+            console.log("File deleted for input:", inputId);
+        }
+
+        handleFileUpload("file-upload-1", "file-name-1");
+        handleFileUpload("file-upload-2", "file-name-2");
+        handleFileUpload("file-upload-3", "file-name-3");
+        handleFileUpload("file-upload-4", "file-name-4");
+        handleFileUpload("file-upload-5", "file-name-5");
     </script>
 
 </body>
