@@ -11,7 +11,6 @@
         function showAlert() {
             alert("Succesfully updated!");
         }
-        
     </script>
     <style>
         table,
@@ -59,15 +58,12 @@
 <body>
     <div>
         <!-- Header -->
-        <?php
-        include_once('../../Common/header.html');
-        ?>
-
+        <?php include_once('../../Common/header.html'); ?>
 
         <section>
 
             <div>
-                <?php include_once('../../Common/sidebar.php');  ?>
+                <?php include_once('../../Common/sidebar.php'); ?>
             </div>
 
             <div class="content-container">
@@ -183,7 +179,7 @@
                                             <label for="UmurWali">Umur Wali:</label>
                                         </td>
                                         <td>
-                                            <input type="text" id="UmurWali" name="UmurWali">
+                                            <input type="text" id="UmurWali" name="UmurWali" maxlength="2" pattern="\d{1,2}">
                                         </td>
                                     </tr>
                                     <tr>
