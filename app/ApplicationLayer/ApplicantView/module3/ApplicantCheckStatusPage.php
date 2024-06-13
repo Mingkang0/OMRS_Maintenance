@@ -28,7 +28,7 @@
                         <div>
                             <h1>Permohonaan Perkahwinan</h1>
                             <label for="icNumber" class="">No K/P Pemohon:</label>
-                            <input type="text" id="icNumber" placeholder="xxxxxx-xx-xxxx" required>
+                            <input type="text" id="icNumber" placeholder="xxxxxx-xx-xxxx" required maxlength="12"> //Add required length to 12 character
 
                             <button type="submit" id="submit"><a href="ApplicantMarriageCertPage.php">Semak</a></button>
 
@@ -42,8 +42,14 @@
             </div>
         </section>
         <script>
+            //Set only numerical input 
+            document.getElementById('icNumber').addEventListener('input', function(e) {
 
-            doc
+                this.value = this.value.replace(/[^0-9\-]/g, '');
+            });
+
+
+
             document.getElementById('myForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevent form submission
 

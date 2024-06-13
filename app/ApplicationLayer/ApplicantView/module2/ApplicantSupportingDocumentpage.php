@@ -255,7 +255,7 @@
                                 <td>
                                     <input id="file-upload-5" type="file" style="display: none;">
                                     <span id="file-name-5"></span>
-                                    <button class="delete-button" onclick="deleteFile(5)">Delete</button>
+                                    <button class="delete-button" onclick="deleteFile(5)">Delete</button> //add delete button
                                 </td>
                             </tr>
                         </table>
@@ -274,6 +274,7 @@
             });
         }
 
+        //Add delete function
         function deleteFile(fileNumber) {
             var inputId = "file-upload-" + fileNumber;
             var fileNameId = "file-name-" + fileNumber;

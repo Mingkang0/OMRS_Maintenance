@@ -97,7 +97,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Jenis Pekerjaan : </th>
+                                    <th>Jenis Pekerjaan : </th>//Dropdown selection menu
                                     <td>
                                         <select name="isteri-jobtype" id="isteri-jobtype" required>
                                             <option value="kerajaan">Kerajaan</option>
@@ -111,7 +111,7 @@
                                     <td><textarea name="isteri-jobaddress" id="isteri-jobaddress" required></textarea></td>
                                     <th>Pendapatan : </th>
                                     <td><input type="number" name="isteri-salary" id="isteri-salary" required></td>
-                                    <th>Jenis Bank : </th>
+                                    <th>Jenis Bank : </th>//Dropdown selection menu
                                     <td>
                                         <select name="isteri-bank" id="isteri-bank" required>
                                             <option value="maybank">Maybank</option>
@@ -141,8 +141,8 @@
                                     <th>Nama : </th>
                                     <td><input type="text" name="cr-name" id="cr-name" required></td>
                                     <th>Nombor IC : </th>
-                                    <td><input type="text" name="cr-icnum" id="cr-icnum" required maxlength="12"></td>
-                                    <th>Alamat Rumah : </th>
+                                    <td><input type="text" name="cr-icnum" id="cr-icnum" required maxlength="12"></td> //max length
+                                    <th>Alamat Rumah : </th>// multiline text area
                                     <td><textarea name="cr-address" id="cr-address" required></textarea></td>
                                     <th>Hubungan dengan Pemohon : </th>
                                     <td><input type="text" name="cr-relation" id="cr-relation" required></td>
@@ -187,6 +187,7 @@
             </div>
         </section>
     </div>
+    //function user insert only numerical
     <script>
         document.getElementById("cr-icnum").addEventListener("input", function(event) {
             // Retrieve the input value

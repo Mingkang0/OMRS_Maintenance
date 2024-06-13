@@ -179,7 +179,7 @@
                                             <label for="UmurWali">Umur Wali:</label>
                                         </td>
                                         <td>
-                                            <input type="text" id="UmurWali" name="UmurWali" maxlength="2" pattern="\d{1,2}">
+                                            <input type="text" id="UmurWali" name="UmurWali" maxlength="2" pattern="\d{1,2}"> //set max length only 2 character
                                         </td>
                                     </tr>
                                     <tr>
