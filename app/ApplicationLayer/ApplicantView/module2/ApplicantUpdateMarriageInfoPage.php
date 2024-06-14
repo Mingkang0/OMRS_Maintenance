@@ -9,7 +9,20 @@
     <link rel="stylesheet" href="">
     <script>
         function showAlert() {
-            alert("Succesfully updated!");
+            alert("Successfully updated!");
+        }
+
+        function calculateAge(birthDateInput) {
+            const birthDate = new Date(birthDateInput.value);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            document.getElementById("UmurWali").value = age;
         }
     </script>
     <style>
@@ -34,7 +47,6 @@
             background: #FFE0F6;
             border-radius: 10px;
             padding-left: 10px;
-
         }
 
         #line {
@@ -61,7 +73,6 @@
         <?php include_once('../../Common/header.html'); ?>
 
         <section>
-
             <div>
                 <?php include_once('../../Common/sidebar.php'); ?>
             </div>
@@ -71,7 +82,7 @@
                     <div class="inner-content">
                         <h4>PERKAHWINAN</h4>
                         <hr id="line">
-                        <div class=inner-double-content>
+                        <div class="inner-double-content">
                             <form action="">
                                 <table class="table-info">
                                     <div class="header-title">
@@ -171,7 +182,7 @@
                                             <label for="tarikhLahirWali">Tarikh Lahir Wali</label>
                                         </td>
                                         <td>
-                                            <input type="date" id="tarikhLahirWali" name="tarikhLahirWali">
+                                            <input type="date" id="tarikhLahirWali" name="tarikhLahirWali" onchange="calculateAge(this)">
                                         </td>
                                     </tr>
                                     <tr>
@@ -179,7 +190,7 @@
                                             <label for="UmurWali">Umur Wali:</label>
                                         </td>
                                         <td>
-                                            <input type="text" id="UmurWali" name="UmurWali" maxlength="2" pattern="\d{1,2}"> //set max length only 2 character
+                                            <input type="text" id="UmurWali" name="UmurWali" maxlength="2" pattern="\d{1,2}" readonly>
                                         </td>
                                     </tr>
                                     <tr>
@@ -199,7 +210,6 @@
             </div>
         </section>
     </div>
-
 </body>
 
 </html>

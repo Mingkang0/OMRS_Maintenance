@@ -56,7 +56,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Jenis Pekerjaan : </th>
+                                    <th>Jenis Pekerjaan : </th> <!-- drop-down selection menu -->
                                     <td>
                                         <select name="suami-jobtype" id="suami-jobtype" required>
                                             <option value="kerajaan">Kerajaan</option>
@@ -66,13 +66,16 @@
                                     </td>
                                     <th>Nama Pekerjaan : </th>
                                     <td><input type="text" name="suami-jobname" id="suami-jobname" required></td>
+                                    <!-- modify text area for address -->
                                     <th>Alamat Tempat Bekerja : </th>
                                     <td><textarea name="suami-jobaddress" id="suami-jobaddress" required></textarea></td>
+
                                     <th>Pendapatan : </th>
                                     <td><input type="number" name="suami-salary" id="suami-salary" required></td>
+
                                     <th>Jenis Bank : </th>
                                     <td>
-                                        <select name="suami-bank" id="suami-bank" required>
+                                        <select name="suami-bank" id="suami-bank" required> <!-- drop-down selection menu -->
                                             <option value="maybank">Maybank</option>
                                             <option value="cimb">CIMB</option>
                                             <option value="publicbank">Public Bank</option>
@@ -97,7 +100,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Jenis Pekerjaan : </th>//Dropdown selection menu
+                                    <th>Jenis Pekerjaan : </th> <!-- drop-down selection menu -->
                                     <td>
                                         <select name="isteri-jobtype" id="isteri-jobtype" required>
                                             <option value="kerajaan">Kerajaan</option>
@@ -107,13 +110,17 @@
                                     </td>
                                     <th>Nama Pekerjaan : </th>
                                     <td><input type="text" name="isteri-jobname" id="isteri-jobname" required></td>
+
+                                    <!-- modify text area for address -->
                                     <th>Alamat Tempat Bekerja : </th>
                                     <td><textarea name="isteri-jobaddress" id="isteri-jobaddress" required></textarea></td>
+
                                     <th>Pendapatan : </th>
                                     <td><input type="number" name="isteri-salary" id="isteri-salary" required></td>
-                                    <th>Jenis Bank : </th>//Dropdown selection menu
+                                    
+                                    <th>Jenis Bank : </th> //Dropdown selection menu
                                     <td>
-                                        <select name="isteri-bank" id="isteri-bank" required>
+                                        <select name="isteri-bank" id="isteri-bank" required> <!-- drop-down selection menu -->
                                             <option value="maybank">Maybank</option>
                                             <option value="cimb">CIMB</option>
                                             <option value="publicbank">Public Bank</option>
@@ -142,7 +149,8 @@
                                     <td><input type="text" name="cr-name" id="cr-name" required></td>
                                     <th>Nombor IC : </th>
                                     <td><input type="text" name="cr-icnum" id="cr-icnum" required maxlength="12"></td> //max length
-                                    <th>Alamat Rumah : </th>// multiline text area
+                                    <th>Alamat Rumah : </th>
+                                    <!-- modify to text area -->
                                     <td><textarea name="cr-address" id="cr-address" required></textarea></td>
                                     <th>Hubungan dengan Pemohon : </th>
                                     <td><input type="text" name="cr-relation" id="cr-relation" required></td>
